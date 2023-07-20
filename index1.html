@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="./css/style.css" type="text/css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>じゃんけんゲーム！</title>
+    </head>
+    <script>
+        function Saikoro() {
+            let janken_p = Math.floor( Math.random() * 3) +1;
+            switch(janken_p){
+                case 1: $janken_p = "パー";
+                break;
+                case 2: $janken_p = "グー";
+                break;
+                case 3: $janken_p = "チョキ";
+                break;
+            }
+            document.getElementById("janken_p").innerHTML = $janken_p;
+            document.getElementById("Player").src= "img/janken/janken_" + janken_p + ".jpg";
+
+            let janken_a = Math.floor( Math.random() * 3) +1;
+            switch(janken_a){
+                case 1: $janken_a = "パー";
+                break;
+                case 2: $janken_a = "グー";
+                break;
+                case 3: $janken_a = "チョキ";
+                break;
+            }
+            document.getElementById("janken_a").innerHTML = $janken_a;
+            document.getElementById("ai").src= "img/janken/janken_" + janken_a + ".jpg";
+            
+
+            switch(janken_p){
+                case 1:switch(janken_a){
+                        case 1: $kekka = "あいこ";
+                        break;
+                        case 2: $kekka = "勝ち";
+                        break;
+                        case 3: $kekka = "負け";
+                        break;
+                        }
+                break;
+                case 2:switch(janken_a){
+                        case 1: $kekka = "負け";
+                        break;
+                        case 2: $kekka = "あいこ";
+                        break;
+                        case 3: $kekka = "勝ち";
+                        break;
+                        }
+                break;
+                case 3:switch(janken_a){
+                        case 1: $kekka = "勝ち";
+                        break;
+                        case 2: $kekka = "負け";
+                        break;
+                        case 3: $kekka = "あいこ";
+                        break;
+                        }
+                break;
+            }
+            document.getElementById("play").innerHTML = $kekka;
+        }
+    </script>
+    <body>
+        <p id="play"></p>
+        <br>
+        <p id = "but"><a onclick="Saikoro();">じゃんけん！</a></p>
+        <div id = "attribute">
+            <div class="item">
+                <h2>プレイヤー</h2>
+                <p><img id="Player" src="img/furee.jpg" ></p>
+                <p id="janken_p"></p>
+            </div>
+            <div class="item">
+                <h2>AI</h2>
+                <p><img id="ai" src="img/furee.jpg" ></p>
+                <p id="janken_a"></p>
+            </div>
+        </div>
+    </body>
+</html>
+
+
